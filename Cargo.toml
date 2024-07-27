@@ -11,24 +11,24 @@ version = "0.28.1"
 
 
 [profile.release]
-opt-level = 2 # fast and small wasm
+opt-level = 3 # fast and small wasm
 
 [profile.dev.package."*"]
 # Optimize all dependencies even in debug builds (does not affect workspace packages):
-opt-level = 2
+opt-level = 3
 
 
 [workspace.dependencies]
 egui_plot = { version = "0.28.1", path = "egui_plot", default-features = false }
 
-ahash = { version = "0.8.11", default-features = false, features = [
+ahash = { version = "0.8.9", default-features = false, features = [
     "no-rng", # we don't need DOS-protection, so we let users opt-in to it instead
     "std",
 ] }
 document-features = " 0.2.8"
-eframe = { version = "0.28.1", default-features = false }
-egui = { version = "0.28.1", default-features = false }
-emath = { version = "0.28.1", default-features = false }
+eframe = { path = "../egui/crates/eframe", default-features = false }
+egui = { path = "../egui/crates/egui", default-features = false }
+emath = { path = "../egui/crates/emath", default-features = false }
 image = { version = "0.25", default-features = false }
 serde = { version = "1", features = ["derive"] }
 
